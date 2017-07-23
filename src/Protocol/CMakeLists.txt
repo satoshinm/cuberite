@@ -7,6 +7,7 @@ SET (SRCS
 	ChunkDataSerializer.cpp
 	MojangAPI.cpp
 	Packetizer.cpp
+	Protocol_1_7.cpp
 	Protocol_1_8.cpp
 	Protocol_1_9.cpp
 	Protocol_1_10.cpp
@@ -21,6 +22,7 @@ SET (HDRS
 	MojangAPI.h
 	Packetizer.h
 	Protocol.h
+	Protocol_1_7.h
 	Protocol_1_8.h
 	Protocol_1_9.h
 	Protocol_1_10.h
@@ -30,6 +32,7 @@ SET (HDRS
 )
 
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+	set_source_files_properties(Protocol_1_7.cpp PROPERTIES COMPILE_FLAGS "-Wno-error=switch-enum ")
 	set_source_files_properties(Protocol_1_9.cpp  PROPERTIES COMPILE_FLAGS "-Wno-error=switch")
 	set_source_files_properties(Protocol_1_8.cpp  PROPERTIES COMPILE_FLAGS "-Wno-error=switch")
 	set_source_files_properties(Protocol_1_10.cpp PROPERTIES COMPILE_FLAGS "-Wno-error=switch")
